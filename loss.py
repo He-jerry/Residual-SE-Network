@@ -1,29 +1,6 @@
 import torch
 import torchvision
-import torch.nn as nn
 import torch.nn.functional as F
-class localmse2:
-  def __init__(self):
-    self.name='local-size MSE loss'
-  @staticmethod
-  def __call__(pred,gt,mask,bs=1):
-    #gt mask
-    
-    mask2=mask[0,0,:,:]
-    print(mask2.shape)
-
-    i2=int(torch.min(torch.nonzero(mask)[:,2]))
-    x2=int(torch.max(torch.nonzero(mask)[:,2]))
-    i3=int(torch.min(torch.nonzero(mask)[:,3]))
-    x3=int(torch.max(torch.nonzero(mask)[:,3]))
-    print(i2,x2,i3,x3)
-    cppred=pred[:,:,i2:x2,i3:x3]
-    cpgt=gt[:,:,i2:x2,i3:x3]
-    cppred=F.interpolate(cppred,(256,256))
-    cpgt=F.interpolate(cpgt,(256,256))
-    criterion=VGGLoss()
-    loss=criterion(cppred,cpgt)
-    return loss
 
 import os
 from PIL import Image
