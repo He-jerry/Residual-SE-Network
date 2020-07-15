@@ -1,0 +1,16 @@
+### DEFAULT SETTINGS #########################
+#rank           = 
+priority        = 0
+notification    = Never
+notify_user     = 
+getenv          = True
+#environment    = HOME=¡¥/public/zebanghe2/miniconda/envs/psp/¡¦
+### JOB ###########################
+executable      = train.py
+arguments       = 
+input           =
+output          = comb2.out
+error           = comb2.err
+log             = comb2.log
+
+queue
